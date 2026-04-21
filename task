@@ -1,0 +1,84 @@
+kay, how about finishing it up?
+[11:49 PM]DEVOPS TRACK - STAGE 1 Task: Build & Deploy a Personal API 
+
+Hi Cool Keeds! Weldone on making it to Stage 1. Great run so far
+
+Overview
+In Stage 0, you provisioned a Linux server and configured nginx. In Stage 1, you will build and deploy a secure API that interacts with the GitHub API to report its own deployment status. As a DevOps engineer, you must ensure services are not only running but are resource-constrained and secure. The backend is minimal, but the operational requirements are strict.
+
+What You Must Do
+
+
+Build the API: 
+Write an API in any language that requires an `X-Api-Key` header for all requests.
+
+Required Key: HNG-DEVOPS-STAGE-1-SECRET-KEY
+Error Handling: Any request without this key or with an incorrect key must return a 401 Unauthorized status with a JSON error message..
+{
+  "error": "Unauthorized",
+  "message": "Invalid or missing X-Api-Key"
+}
+
+Endpoints:
+GET /: Returns {“message”: “API is running”}`
+GET /health: Returns the current CPU and Memory usage of the server.
+{
+  "cpu_usage": "X%",
+  "memory_usage": "X MB"
+}
+
+GET /me : Returns a JSON response containing:
+
+Your full name and email (sourced from a .env file).
+Your GitHub profile URL.
+The name of the current repository.
+The status and conclusion of the latest GitHub Actions deployment workflow for this project
+{
+  "name": "Your Full Name",
+  "email": "you@example.com",
+  "github_url": "https://github.com/yourusername",
+  "repo_name": "your-repo-name",
+  "workflow_status": "completed",
+  "workflow_conclusion": "success"
+}All endpoints must return Content-Type: application/json, an HTTP status code of 200 (on success), and respond within 300ms.
+
+2. Deploy It
+Process Management: You must use systemd to manage your application.
+Resource Limits: The systemd service must be configured to strictly limit the application to:
+
+CPU: 10%
+Memory: 128MB
+Security: Deploy using an nginx Reverse Proxy. Use a firewall to ensure the application port is not publicly accessible; only nginx (Port 80/443) should be reachable.
+
+3. Document It
+Push your code to a public GitHub repository with a README that includes:
+
+Project description and local setup instructions.
+The API endpoints and expected responses.
+The live deployment URL.
+
+
+
+
+Evaluation Criteria:
+
+All endpoints must return `Content-Type: application/json`.
+All successful requests must return HTTP 200; unauthorized requests must return HTTP 401.
+The /me endpoint must successfully pull and display the latest GitHub Actions workflow status for the repo.
+The service must be managed by `systemd` with the specified CPU and Memory quotas enforced.
+The application port must be firewalled, with traffic served only via Nginx.
+All endpoints must respond within 300ms.
+The GitHub repository must be public.
+ANY exposed secrets (API keys, tokens, or .env files) found in the GitHub repository history will result in deducted narks
+
+
+Submission:
+To submit, go to the stage-one-devops and use /submit. Submit the following:
+
+ Your live public base URL (e.g., http://yourdomain.com).
+Your GitHub repository link.
+
+
+Deadline: Friday, 17th of April, 2026
+
+May the forces be with you Cool Keeds! (edited)
