@@ -28,7 +28,7 @@ jobs:
             sudo mkdir -p /opt/hng-task-one
             sudo chown -R ubuntu:ubuntu /opt/hng-task-one
 
-            git clone https://github.com/okekolawolesunday009/hng-stage-one /opt/hng-task-one
+            git clone https://github.com/okekolawolesunday009/hng-stage-one /opt/hng-task-one/
 
-            cd /opt/hng-task-one/api
+            cd /opt/hng-task-one/hng-stage-one/api
             npm install
