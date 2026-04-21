@@ -24,9 +24,10 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            sudo rm -rf /opt/hng-task-one
-            sudo mkdir -p /opt/hng-task-one
+            rm -rf /opt/hng-task-one
+            mkdir -p /opt/hng-task-one
+
+            git clone https://github.com/okekolawolesunday009/hng-stage-one /opt/hng-task-one
+
             cd /opt/hng-task-one
-            sudo git clone https://github.com/okekolawolesunday009/hng-stage-one .
             npm install
-            
