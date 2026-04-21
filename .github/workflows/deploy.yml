@@ -31,4 +31,4 @@ jobs:
             git clone https://github.com/okekolawolesunday009/hng-stage-one /opt/hng-task-one/
 
             cd /opt/hng-task-one/hng-stage-one/api
-            npm install
+            sudo npm install
