@@ -24,8 +24,9 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            rm -rf /opt/hng-task-one
-            mkdir -p /opt/hng-task-one
+            sudo rm -rf /opt/hng-task-one
+            sudo mkdir -p /opt/hng-task-one
+            sudo chown -R ubuntu:ubuntu /opt/hng-task-one
 
             git clone https://github.com/okekolawolesunday009/hng-stage-one /opt/hng-task-one
 
